@@ -9,18 +9,17 @@ class Solution(object):
             return 0
         l = 0
         r = len(height) - 1
-        maxarea = (l - r) * min(height[l], height[r])
+        maxarea = 0
         while l < r:
-            h = 0
             if height[l] > height[r]:
-                h = height[r]
+                maxarea = max(maxarea, (r - l) * height[r])
                 r -= 1
             else:
-                h = height[l]
+                maxarea = max(maxarea, (r - l) * height[l])
                 l += 1
-            maxarea = max(maxarea, (l - r) * h)
         return maxarea
+
 
 if __name__ == "__main__":
     s = Solution()
-    s.height([1,8,6,2,5,4,8,3,7])
+    print s.maxArea([1,8,6,2,5,4,8,3,7])
