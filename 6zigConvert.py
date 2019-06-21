@@ -31,4 +31,5 @@ def zigConvert(s, numRows):
     return ss
 
 
-print zigConvert('ABCDE', 4)
+if __name__ == "__main__":
+    print zigConvert('ABCDE', 4)

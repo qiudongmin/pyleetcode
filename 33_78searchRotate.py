@@ -1,3 +1,8 @@
+#!/usr/bin/python
+# coding: utf-8
+__author__ = 'qiudongmin'
+
+
 class Solution(object):
 
     def search(self, nums, target):
@@ -12,13 +17,13 @@ class Solution(object):
             mid = l + ((r - l) >> 1)
             if target == nums[mid]:
                 return mid
-            elif not (nums[l] < nums[mid]) ^ (target < nums[mid]) ^ (target < nums[l]):
-                r = mid - 1
+            elif not (nums[l] <= nums[mid]) ^ (target < nums[mid]) ^ (target < nums[l]):
+                r = mid
             else:
-                l = mid
+                l = mid + 1
         return l if (l == r and nums[l] == target) else -1
 
 
 if __name__ == "__main__":
     s = Solution()
-    print s.search([4,5,6,7,0,1,2], 0)
+    print s.search([1,3], 3)

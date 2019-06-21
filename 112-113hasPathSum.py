@@ -2,6 +2,7 @@
 # coding: utf-8
 __author__ = 'qiudongmin'
 
+
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
