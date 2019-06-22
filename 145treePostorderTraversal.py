@@ -2,35 +2,36 @@
 # coding: utf-8
 __author__ = 'qiudongmin'
 
-# Definition for a binary tree node.
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from myleetcode import TreeNode
 
 
-def postorderTraversal(root):
-    """
-    :type root: TreeNode
-    :rtype: List[int]
-    """
-    r = root
-    stack = []
-    ans = []
-    stack.append(r)
-    while len(stack) > 0:
-        r = stack.pop()
-        ans.append(r.val)
-        if r.left:
-            stack.append(r.left)
-        if r.right:
-            stack.append(r.right)
+class Solution(object):
 
-    ans.reverse()
-    return ans
+    def postorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        r = root
+        stack = []
+        ans = []
+        stack.append(r)
+        while len(stack) > 0:
+            r = stack.pop()
+            ans.append(r.val)
+            if r.left:
+                stack.append(r.left)
+            if r.right:
+                stack.append(r.right)
 
-a = TreeNode(1)
-a.right = TreeNode(2)
-a.right.left = TreeNode(3)
-print postorderTraversal(a)
+        ans.reverse()
+        return ans
+
+
+if __name__ == "__main__":
+    a = TreeNode(1)
+    a.right = TreeNode(2)
+    a.right.left = TreeNode(3)
+
+    s = Solution()
+    print s.postorderTraversal(a)
